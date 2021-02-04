@@ -51,9 +51,7 @@ namespace EmpWageComputationUC7
                     Console.WriteLine(" Emp Daily Wage: " + empWage);
                 }
                 Console.WriteLine("Emp Total Wage: " + totalEmpWage);
-
             }
-
             else
             {
                 Console.WriteLine(" Employee is Absent ");
