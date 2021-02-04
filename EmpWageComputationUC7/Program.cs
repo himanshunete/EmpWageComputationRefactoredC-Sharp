@@ -2,27 +2,28 @@
 
 namespace EmpWageComputationUC7
 {
-    class Program
+    class EmpWageBuilder
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="args"></param>
-        static void Main(string[] args)
+        //Constant
+        public const int IS_PRESENT = 1;
+        public const int IS_FULL_TIME = 1;
+        public const int IS_PART_TIME = 0;
+        public const int EMP_RATE_PER_HOUR = 20;
+        public const int NUM_OF_WORKING_DAYS = 20;
+        public const int MAX_NUM_OF_HOURS = 100;
+
+        //Class Variable
+        public static int totalEmpWage = 0;
+        public static int totalEmpHrs = 0;
+        public static int totalWorkingDays = 0;
+        public static int empHrs;
+        public static int empWage;
+
+        // Class Method
+        public static void CheckingWage()
         {
             Console.WriteLine("Welcome To Employee Wage Computation Program");
-            //Constant
-            int IS_PRESENT = 1;
-            const int IS_FULL_TIME = 1;
-            const int IS_PART_TIME = 0;
-            int EMP_RATE_PER_HOUR = 20;
-            int NUM_OF_WORKING_DAYS = 20;
-            int MAX_NUM_OF_HOURS = 100;
 
-            //Variable
-            int totalEmpWage = 0;
-            int totalEmpHrs = 0;
-            int totalWorkingDays = 0;
             Random rand = new Random();
             int empCheck = rand.Next(0, 2);
             if (empCheck == IS_PRESENT)
@@ -32,9 +33,6 @@ namespace EmpWageComputationUC7
                 {
                     totalEmpHrs++;
                     totalWorkingDays++;
-                    //Variables  
-                    int empHrs;
-                    int empWage;
                     int workingTime = rand.Next(0, 2);
                     switch (workingTime)
                     {
@@ -53,9 +51,22 @@ namespace EmpWageComputationUC7
                     Console.WriteLine(" Emp Daily Wage: " + empWage);
                 }
                 Console.WriteLine("Emp Total Wage: " + totalEmpWage);
+
             }
 
+            else
+            {
+                Console.WriteLine(" Employee is Absent ");
+            }
 
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            EmpWageBuilder.CheckingWage();
         }
     }
 }
